@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/custom_slider.dart';
 
-class CategoryProvider with ChangeNotifier {
+class CustomSliderProvider with ChangeNotifier {
   final List<CustomSlider> _items = [
     CustomSlider(id: '1', imageUrl: 'imageUrl', position: 1),
     CustomSlider(id: '2', imageUrl: 'imageUrl', position: 2),
