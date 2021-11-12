@@ -42,8 +42,8 @@ class HomePage extends StatelessWidget {
         const SizedBox(
           height: 10.0,
         ),
-        // ignore: prefer_const_constructors
         Category(),
+        // ignore: prefer_const_constructors
       ],
     )
 
