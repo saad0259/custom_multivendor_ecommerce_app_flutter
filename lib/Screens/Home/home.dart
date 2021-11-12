@@ -1,55 +1,79 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import './Widgets/image_slider.dart';
 import './Widgets/category.dart';
+import './Widgets/Favourite.dart';
+import './Widgets/products.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        Stack(
-          children: [
-            CarouselWithIndicatorDemo(),
-            const Positioned(
-              top: 20.0,
-              left: 10.0,
-              child: Text(
-                'LOGO',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30.0,
-                ),
-              ),
-            ),
-            const Positioned(
-              top: 20.0,
-              left: 340.0,
-              child: Text(
-                'Cart',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30.0,
-                ),
-              ),
-            ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.shop)),
           ],
-        ), //Image Slider
-        const SizedBox(
-          height: 10.0,
+          title: Text('E_Commerce'),
+          centerTitle: true,
         ),
-        Category(),
-        // ignore: prefer_const_constructors
-      ],
-    )
+        drawer: Drawer(),
+
+        body: ListView(
+          children: [
+            Container(
+              color: Colors.blue,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50.0),
+                    bottomRight: Radius.circular(50.0),
+                  ),
+                  child: CarouselWithIndicatorDemo()),
+            ),
+            Container(
+              color: Colors.blue,
+              width: double.infinity,
+              child: Text(
+                'Category',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ),
+            Category(),
+            Container(
+              margin: EdgeInsets.only(left: 10.0),
+              color: Colors.white,
+              width: double.infinity,
+              child: Text(
+                'favourites',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ),
+            Container(
+              height: 200.0,
+              color: Colors.white,
+              child: Favourites(),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 10.0),
+              color: Colors.white,
+              width: double.infinity,
+              child: Text(
+                'Products',
+                style: TextStyle(fontSize: 30.0),
+              ),
+            ),
+            Product(),
+          ],
+        ),
 
         // Center(
         //   child: Text('Hello'),
         // ),
-        );
+      ),
+    );
   }
 }

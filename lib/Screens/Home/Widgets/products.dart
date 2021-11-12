@@ -1,32 +1,15 @@
-// ignore_for_file: file_names, sized_box_for_whitespace, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
+import './Favourite.dart';
 
-class Category extends StatelessWidget {
-  const Category({Key? key}) : super(key: key);
+class Product extends StatelessWidget {
+  const Product({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(50),
-          bottomRight: Radius.circular(50),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blue,
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      height: 250.0,
-      width: double.infinity,
+      height: 700.0,
       child: GridView.count(
-        crossAxisCount: 4,
+        crossAxisCount: 2,
         children: List.generate(8, (index) {
           return Container(
             margin: EdgeInsets.only(
@@ -60,7 +43,7 @@ class Category extends StatelessWidget {
                   color: Colors.blue,
                 )),
                 Text(
-                  'Category $index',
+                  'Product $index',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
