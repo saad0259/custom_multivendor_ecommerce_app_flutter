@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
             IconButton(onPressed: () {}, icon: Icon(Icons.shop)),
           ],
-          title: Text('E_Commerce'),
+          title: TextField(),
           centerTitle: true,
         ),
         drawer: Drawer(),

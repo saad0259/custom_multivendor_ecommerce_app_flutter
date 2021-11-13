@@ -16,14 +16,51 @@ class FeaturedView extends StatelessWidget {
     final featuredProducts = Provider.of<ProductProvider>(context).items;
     return SizedBox(
       height: 200,
-      child: ListView.builder(
-        itemCount: featuredProducts.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return FeaturedProductCard(
-            product: featuredProducts[index],
-          );
-        },
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Featured Products',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'View more',
+                    ),
+                    Icon(Icons.next_plan_outlined),
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 150,
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: featuredProducts.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return FeaturedProductCard(
+                        product: featuredProducts[index],
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -36,10 +73,10 @@ class FeaturedProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      width: 350,
       margin: EdgeInsets.all(10.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
         child: Container(
           color: Colors.blue.shade100,
           child: Row(
@@ -56,29 +93,30 @@ class FeaturedProductCard extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Text(
-                    product.title,
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Center(
+                      child: Container(
+                        width: 140.0,
+                        child: Text(
+                          product.title,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  Expanded(
-                      child: Center(
-                          child: Text(
-                    'Description',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ))),
+                  //TODO: add currency logic. use getter inside product model
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(
-                        // color: Colors.blue,
-                        onPressed: () {},
-                        child: Text('Add to cart'),
-                      ),
+                      Text('\$ ${product.price}',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          )),
                       IconButton(
                           onPressed: () {},
                           icon: Icon(

@@ -18,9 +18,29 @@ class ProductView extends StatelessWidget {
       height: 700.0,
       child: Column(
         children: [
-          Text(
-            'Products',
-            style: TextStyle(fontSize: 30.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Products',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'View more',
+                    ),
+                    Icon(Icons.next_plan_outlined),
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ],
           ),
           Expanded(
             child: GridView.builder(
