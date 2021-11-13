@@ -1,29 +1,42 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
+// ignore: todo
+// TODO: Remove the Above lines before release
 
-class Favourites extends StatelessWidget {
-  const Favourites({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import '../../../../providers/product_provider.dart';
+import '../../../../models/product.dart';
+import 'package:provider/provider.dart';
+
+class FeaturedView extends StatelessWidget {
+  const FeaturedView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      children: [
-        ListItem(),
-        ListItem(),
-        ListItem(),
-        ListItem(),
-        ListItem(),
-      ],
+    final featuredProducts = Provider.of<ProductProvider>(context).items;
+    return SizedBox(
+      height: 200,
+      child: ListView.builder(
+        itemCount: featuredProducts.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return FeaturedProductCard(
+            product: featuredProducts[index],
+          );
+        },
+      ),
     );
   }
 }
 
-class ListItem extends StatelessWidget {
-  const ListItem({Key? key}) : super(key: key);
-
+class FeaturedProductCard extends StatelessWidget {
+  const FeaturedProductCard({Key? key, required this.product})
+      : super(key: key);
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 400,
       margin: EdgeInsets.all(10.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(30.0)),
@@ -44,7 +57,7 @@ class ListItem extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Title',
+                    product.title,
                     style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,

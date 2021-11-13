@@ -1,3 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+// ignore: todo
+// TODO: Remove the Above lines before release
+
 import 'package:flutter/material.dart';
 import '../models/category.dart';
 

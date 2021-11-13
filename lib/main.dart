@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import './providers/slider_provider.dart';
 import './providers/category_provider.dart';
 import './providers/product_provider.dart';
-import 'Screens/Home/home.dart';
+import 'ui/screens/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
