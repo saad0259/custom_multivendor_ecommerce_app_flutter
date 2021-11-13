@@ -23,19 +23,20 @@ class ProductView extends StatelessWidget {
             children: [
               Text(
                 'Products',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline5,
               ),
               TextButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text(
                       'View more',
+                      // style: Theme.of(context).textTheme.headline6,
                     ),
-                    Icon(Icons.next_plan_outlined),
+                    Icon(
+                      Icons.keyboard_arrow_right_outlined,
+                      size: 14.0,
+                    ),
                   ],
                 ),
                 onPressed: () {},
@@ -75,19 +76,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: Container(
-        margin: EdgeInsets.only(
-          top: 8.0,
-          left: 12.0,
-          bottom: 8.0,
-          right: 12.0,
+        margin: EdgeInsets.symmetric(
+          vertical: 8.0,
+          horizontal: 12.0,
         ),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.white.withOpacity(0.5),

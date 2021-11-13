@@ -10,7 +10,7 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final categories =
         Provider.of<CategoryProvider>(context).items; // get data from provider
-    return Container(
+    return SizedBox(
       height: 250,
       child: Column(
         children: [
@@ -19,19 +19,20 @@ class CategoryView extends StatelessWidget {
             children: [
               Text(
                 'Category',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline5,
               ),
               TextButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text(
                       'View more',
+                      // style: Theme.of(context).textTheme.headline6,
                     ),
-                    Icon(Icons.next_plan_outlined),
+                    Icon(
+                      Icons.keyboard_arrow_right_outlined,
+                      size: 14.0,
+                    ),
                   ],
                 ),
                 onPressed: () {},
@@ -39,23 +40,12 @@ class CategoryView extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: Container(
-              // decoration: BoxDecoration(
-              //   color: Colors.grey,
-              //   boxShadow: [
-              //     BoxShadow(
-              //       color: Colors.blue,
-              //       spreadRadius: 5,
-              //       blurRadius: 7,
-              //       offset: Offset(0, 3), // changes position of shadow
-              //     ),
-              //   ],
-              // ),
+            child: SizedBox(
               width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: GridView.builder(
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
                     crossAxisSpacing: 1,
@@ -90,10 +80,10 @@ class CategoryCard extends StatelessWidget {
     return GridTile(
       key: Key(category.id), // used category id as key for the gridtile widget
       child: Card(
-        elevation: 3,
+        elevation: 2,
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
                 child: Icon(
               Icons.person,
               size: 50.0,
@@ -101,13 +91,11 @@ class CategoryCard extends StatelessWidget {
             )),
             Container(
               width: double.infinity,
-              color: Colors.blue.shade100,
+              color: Theme.of(context).primaryColorLight,
               child: Text(
                 category.title, // used title of category in category car
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
           ],

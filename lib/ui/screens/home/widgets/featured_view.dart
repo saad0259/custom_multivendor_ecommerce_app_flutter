@@ -22,20 +22,21 @@ class FeaturedView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Featured Products',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                'Featured Deals',
+                style: Theme.of(context).textTheme.headline5,
               ),
               TextButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: const [
                     Text(
                       'View more',
+                      // style: Theme.of(context).textTheme.headline6,
                     ),
-                    Icon(Icons.next_plan_outlined),
+                    Icon(
+                      Icons.keyboard_arrow_right_outlined,
+                      size: 14.0,
+                    ),
                   ],
                 ),
                 onPressed: () {},
@@ -73,59 +74,54 @@ class FeaturedProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 350,
-      margin: EdgeInsets.all(10.0),
+      width: 280,
+      margin: EdgeInsets.only(left: 5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        child: Container(
-          color: Colors.blue.shade100,
+        child: Card(
+          // color: Colors.blue.shade100,
           child: Row(
             children: [
               Image(
                 image: NetworkImage(
                     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
-                height: 200.0,
-                width: 150.0,
-                fit: BoxFit.fill,
+                height: 150.0,
+                width: 120.0,
+                fit: BoxFit.cover,
               ),
               SizedBox(
-                width: 20.0,
+                width: 12.0,
               ),
-              Column(
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: Container(
-                        width: 140.0,
+              Expanded(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        // width: 120.0,
                         child: Text(
                           product.title,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context).textTheme.headline6,
                         ),
                       ),
                     ),
-                  ),
-                  //TODO: add currency logic. use getter inside product model
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('\$ ${product.price}',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite_outline,
-                            color: Colors.red,
-                          ))
-                    ],
-                  )
-                ],
+                    //TODO: add currency logic. use getter inside product model
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '\$ ${product.price}',
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.favorite_outline,
+                              color: Colors.red,
+                            ))
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
