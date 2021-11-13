@@ -15,20 +15,16 @@ final List<String> imgList = [
 
 //Widget Created for Network images
 final List<Widget> imageSliders = imgList
-    .map((item) => Container(
-          color: Colors.blue,
-          child: Container(
-            width: double.infinity,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              child: Image.network(item, width: double.infinity),
-            ),
-          ),
+    .map((item) => SizedBox(
+          // width: double.infinity,
+          child: Image.network(item, width: double.infinity),
         ))
     .toList();
 
 //Image Slider
 class CarouselWithIndicatorDemo extends StatefulWidget {
+  const CarouselWithIndicatorDemo({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _CarouselWithIndicatorState();

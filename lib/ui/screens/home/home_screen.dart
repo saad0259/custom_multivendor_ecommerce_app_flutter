@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xffebebeb),
         appBar: AppBar(
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
@@ -26,13 +27,17 @@ class HomePage extends StatelessWidget {
         drawer: Drawer(),
 
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              CarouselWithIndicatorDemo(),
-              CategoryView(),
-              FeaturedView(),
-              ProductView(),
-            ],
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+            child: Column(
+              children: const [
+                CarouselWithIndicatorDemo(),
+                CategoryView(),
+                FeaturedView(),
+                ProductView(),
+              ],
+            ),
           ),
         ),
 
