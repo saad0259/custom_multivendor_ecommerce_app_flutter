@@ -13,6 +13,7 @@ import './providers/slider_provider.dart';
 import './providers/category_provider.dart';
 import './providers/product_provider.dart';
 import 'ui/screens/home/home_screen.dart';
+import './ui/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,10 +37,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: lightTheme(context),
+        // darkTheme: darkTheme,
         home: HomePage(),
+        // themeMode: ThemeMode.light,
       ),
     );
   }

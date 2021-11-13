@@ -40,7 +40,7 @@ class CategoryView extends StatelessWidget {
                   physics: ScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
-                    crossAxisSpacing: 12,
+                    crossAxisSpacing: 5,
                     mainAxisSpacing: 12,
                   ),
                   itemCount: categories.length,

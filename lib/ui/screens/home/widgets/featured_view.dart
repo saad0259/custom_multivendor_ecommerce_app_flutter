@@ -74,8 +74,8 @@ class FeaturedProductCard extends StatelessWidget {
                   ))),
                   Row(
                     children: [
-                      RaisedButton(
-                        color: Colors.blue,
+                      ElevatedButton(
+                        // color: Colors.blue,
                         onPressed: () {},
                         child: Text('Add to cart'),
                       ),

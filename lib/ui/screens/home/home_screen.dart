@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffebebeb),
+        // backgroundColor: Color(0xffebebeb),
         appBar: AppBar(
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
