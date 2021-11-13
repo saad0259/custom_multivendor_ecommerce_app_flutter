@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, sized_box_for_whitespace, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import '../../../../models/category.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +14,29 @@ class CategoryView extends StatelessWidget {
       height: 250,
       child: Column(
         children: [
-          Text(
-            'Category',
-            style: TextStyle(fontSize: 30.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Category',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'View more',
+                    ),
+                    Icon(Icons.next_plan_outlined),
+                  ],
+                ),
+                onPressed: () {},
+              ),
+            ],
           ),
           Expanded(
             child: Container(
@@ -40,8 +58,8 @@ class CategoryView extends StatelessWidget {
                   physics: ScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 1,
                   ),
                   itemCount: categories.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -72,7 +90,7 @@ class CategoryCard extends StatelessWidget {
     return GridTile(
       key: Key(category.id), // used category id as key for the gridtile widget
       child: Card(
-        elevation: 5,
+        elevation: 3,
         child: Column(
           children: [
             Expanded(
