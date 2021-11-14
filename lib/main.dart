@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: darkTheme(context),
+        theme:
+            darkTheme(context), // use lightTheme(context) or darkTheme(context)
 
         home: HomePage(),
         // themeMode: ThemeMode.light,
