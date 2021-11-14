@@ -13,7 +13,8 @@ import './providers/slider_provider.dart';
 import './providers/category_provider.dart';
 import './providers/product_provider.dart';
 import 'ui/screens/home/home_screen.dart';
-import './ui/theme/app_theme.dart';
+import 'ui/theme/light_theme.dart';
+import 'ui/theme/dark_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,8 +38,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: lightTheme(context),
-        // darkTheme: darkTheme,
+        theme: darkTheme(context),
+
         home: HomePage(),
         // themeMode: ThemeMode.light,
       ),
