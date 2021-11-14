@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import './widgets/image_slider.dart';
 import './widgets/category_view.dart';
-import './widgets/featured_view.dart';
+import 'widgets/flash_deal_view.dart';
 import 'widgets/products_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         // backgroundColor: Color(0xffebebeb),
+        //TODO: Add and customize a search bar
         appBar: AppBar(
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.search)),
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
               children: const [
                 CarouselWithIndicatorDemo(),
                 CategoryView(),
-                FeaturedView(),
+                FlashDealView(),
                 ProductView(),
               ],
             ),

@@ -7,7 +7,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
       primaryColorBrightness: Brightness.light,
       primaryColorDark: Colors.blue.shade900,
       primaryColorLight: Colors.blue.shade100,
-      scaffoldBackgroundColor: const Color(0xffebebeb),
+      scaffoldBackgroundColor: const Color(0xfff6f6f6),
       colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
           .copyWith(secondary: Colors.white),
       textButtonTheme: TextButtonThemeData(

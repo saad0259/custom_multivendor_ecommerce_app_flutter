@@ -8,8 +8,11 @@ import '../../../../providers/product_provider.dart';
 import '../../../../models/product.dart';
 import 'package:provider/provider.dart';
 
-class FeaturedView extends StatelessWidget {
-  const FeaturedView({Key? key}) : super(key: key);
+class FlashDealView extends StatelessWidget {
+  const FlashDealView({Key? key}) : super(key: key);
+
+  //TODO: Customize this widget according to the app design i provided
+  //TODO: Use dummy data from product provider here
 
   @override
   Widget build(BuildContext context) {

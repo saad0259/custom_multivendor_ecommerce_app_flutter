@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 class ProductView extends StatelessWidget {
   const ProductView({Key? key}) : super(key: key);
 
+  //TODO: Customize these according to the widget,
+  //TODO: add dummy data in product provider and use 'em here
+
   @override
   Widget build(BuildContext context) {
     final products = Provider.of<ProductProvider>(context).items;

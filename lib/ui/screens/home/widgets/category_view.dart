@@ -6,6 +6,9 @@ import '../../../../providers/category_provider.dart';
 class CategoryView extends StatelessWidget {
   const CategoryView({Key? key}) : super(key: key);
 
+  //TODO: add dummy data in category Provider and use it here
+  //TODO: If the title of category overflows, replace it with dots i.e.  Electronic & Hoursehold => Electronic &...
+
   @override
   Widget build(BuildContext context) {
     final categories =
