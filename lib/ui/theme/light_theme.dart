@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
-MaterialColor lightPrimary = Colors.blue;
-Color lightAccent = Colors.white;
-Color lightPrimaryText = const Color(0xff111111);
+MaterialColor primaryColor = Colors.blue;
+Color accentColor = Colors.white;
+Color primaryTextColor = const Color(0xff111111);
 
 ThemeData lightTheme(BuildContext context) => ThemeData(
-      brightness: Brightness.light,
+      colorScheme: const ColorScheme.light()
+          .copyWith(primary: primaryColor, secondary: accentColor),
+      primaryColor: primaryColor,
       primaryColorBrightness: Brightness.light,
-      scaffoldBackgroundColor: const Color(0xfff6f6f6),
-      colorScheme: ColorScheme.fromSwatch(primarySwatch: lightPrimary)
-          .copyWith(secondary: lightAccent),
+      primaryColorLight: Colors.blue.shade300,
+      cardColor: accentColor,
+      scaffoldBackgroundColor: Colors.white.withAlpha(240),
+      iconTheme: IconThemeData(color: primaryColor),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
               textStyle:
                   MaterialStateProperty.all(const TextStyle(fontSize: 12)),
-              foregroundColor: MaterialStateProperty.all(lightPrimary))),
+              foregroundColor: MaterialStateProperty.all(primaryColor))),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
               textStyle: MaterialStateProperty.all(
@@ -22,16 +25,16 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
                   fontSize: 16,
                 ),
               ),
-              foregroundColor: MaterialStateProperty.all(lightPrimary),
-              backgroundColor: MaterialStateProperty.all(lightPrimary))),
+              foregroundColor: MaterialStateProperty.all(accentColor),
+              backgroundColor: MaterialStateProperty.all(primaryColor))),
       fontFamily: 'Quicksand',
       textTheme: ThemeData.light().textTheme.copyWith(
             bodyText1: TextStyle(
-              color: lightPrimaryText,
+              color: primaryTextColor,
               fontSize: 10,
             ),
             bodyText2: TextStyle(
-              color: lightPrimaryText,
+              color: primaryTextColor,
               fontSize: 10,
             ),
             headline6: const TextStyle(
@@ -40,7 +43,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
             headline5: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
-              color: lightPrimaryText,
+              color: primaryTextColor,
             ),
             headline4: const TextStyle(
               fontSize: 16,
