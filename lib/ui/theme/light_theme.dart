@@ -10,7 +10,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           .copyWith(primary: primaryColor, secondary: accentColor),
       primaryColor: primaryColor,
       primaryColorBrightness: Brightness.light,
-      primaryColorLight: Colors.blue.shade300,
+      primaryColorLight: Colors.blue.shade100,
       cardColor: accentColor,
       scaffoldBackgroundColor: Colors.white.withAlpha(240),
       iconTheme: IconThemeData(color: primaryColor),
