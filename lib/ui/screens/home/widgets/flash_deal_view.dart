@@ -109,7 +109,7 @@ class FeaturedProductCard extends StatelessWidget {
                       ),
                       const SizedBox(
                           width: double.infinity,
-                          height: 10.0,
+                          height: 15.0,
                           child: Text(
                             '\$150',
                             style: TextStyle(
@@ -134,7 +134,7 @@ class FeaturedProductCard extends StatelessWidget {
                                           .primary),
                             ),
                             Container(
-                              padding: EdgeInsets.only(right: 5.0),
+                              padding: const EdgeInsets.only(right: 5.0),
                               child: Row(
                                 children: [
                                   Text(

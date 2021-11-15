@@ -14,7 +14,7 @@ class ProductView extends StatelessWidget {
     final products = Provider.of<ProductProvider>(context).items;
 
     return SizedBox(
-      height: 700.0,
+      height: 900.0,
       child: Column(
         children: [
           Row(
@@ -47,6 +47,7 @@ class ProductView extends StatelessWidget {
               physics: const ScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                childAspectRatio: 0.7,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5,
               ),
@@ -75,16 +76,104 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: Card(
-        child: Column(
+        child: Stack(
           children: [
-            const Expanded(
-                child: Icon(
-              Icons.person,
-              size: 50.0,
-            )),
-            Text(
-              product.title,
+            Column(
+              children: [
+                Expanded(
+                  child: const Image(
+                    image: NetworkImage(
+                        'https://meetanshi.com/blog/wp-content/uploads/2020/02/12-Benefits-Of-E-commerce-Product-Customization-Personalization.png'),
+                    height: 150.0,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Container(
+                  color: Theme.of(context).primaryColorLight,
+                  padding: EdgeInsets.all(
+                    5.0,
+                  ),
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: 25.0,
+                        child: Text(
+                          product.title,
+                          style: Theme.of(context).textTheme.headline5,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$ ${product.price}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5!
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(right: 5.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Data',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6!
+                                        .copyWith(color: Colors.yellow[400]),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow[400],
+                                    size: 15.0,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                          width: double.infinity,
+                          height: 15.0,
+                          child: Text(
+                            '\$150',
+                            style: TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                            textAlign: TextAlign.left,
+                          )),
+                    ],
+                  ),
+                ),
+              ],
             ),
+            Positioned(
+                left: 127,
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(5.0),
+                    ),
+                  ),
+                  child: Text(
+                    '30% off',
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ))
           ],
         ),
       ),
