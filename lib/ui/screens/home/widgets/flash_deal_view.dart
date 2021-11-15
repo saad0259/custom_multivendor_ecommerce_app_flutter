@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-// ignore: todo
-// TODO: Remove the Above lines before release
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../../../../providers/product_provider.dart';
@@ -12,7 +8,6 @@ class FlashDealView extends StatelessWidget {
   const FlashDealView({Key? key}) : super(key: key);
 
   //TODO: Customize this widget according to the app design i provided
-  //TODO: Use dummy data from product provider here
 
   @override
   Widget build(BuildContext context) {
@@ -78,21 +73,21 @@ class FeaturedProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 280,
-      margin: EdgeInsets.only(left: 5.0),
+      margin: const EdgeInsets.only(left: 5.0),
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
         child: Card(
           // color: Colors.blue.shade100,
           child: Row(
             children: [
-              Image(
+              const Image(
                 image: NetworkImage(
                     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
                 height: 150.0,
                 width: 120.0,
                 fit: BoxFit.cover,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12.0,
               ),
               Expanded(
@@ -117,7 +112,7 @@ class FeaturedProductCard extends StatelessWidget {
                         ),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.favorite_outline,
                               color: Colors.red,
                             ))

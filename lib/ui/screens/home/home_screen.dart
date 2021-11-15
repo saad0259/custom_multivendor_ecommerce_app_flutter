@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
             child: Column(
-              children: const [
+              children: [
                 CarouselWithIndicatorDemo(),
                 CategoryView(),
                 FlashDealView(),
