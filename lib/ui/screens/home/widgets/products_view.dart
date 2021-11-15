@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-// ignore: todo
-// TODO: Remove the Above lines before release
-
 import 'package:provider/provider.dart';
 import '../../../../providers/product_provider.dart';
 import '../../../../models/product.dart';
@@ -48,7 +44,7 @@ class ProductView extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
-              physics: ScrollPhysics(),
+              physics: const ScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 5,
@@ -81,7 +77,7 @@ class ProductCard extends StatelessWidget {
       child: Card(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
                 child: Icon(
               Icons.person,
               size: 50.0,

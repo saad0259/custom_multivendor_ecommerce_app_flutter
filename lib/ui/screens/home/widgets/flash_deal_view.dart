@@ -7,8 +7,6 @@ import 'package:provider/provider.dart';
 class FlashDealView extends StatelessWidget {
   const FlashDealView({Key? key}) : super(key: key);
 
-  //TODO: Customize this widget according to the app design i provided
-
   @override
   Widget build(BuildContext context) {
     final featuredProducts = Provider.of<ProductProvider>(context).items;
@@ -72,57 +70,114 @@ class FeaturedProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
       width: 280,
       margin: const EdgeInsets.only(left: 5.0),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        child: Card(
-          child: Row(
-            children: [
-              const Image(
-                image: NetworkImage(
-                    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
-                height: 150.0,
-                width: 120.0,
-                fit: BoxFit.cover,
-              ),
-              const SizedBox(
-                width: 12.0,
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        // width: 120.0,
+      child: Stack(
+        children: [
+          Card(
+            // color: Colors.blue.shade100,
+            child: Row(
+              children: [
+                const Image(
+                  image: NetworkImage(
+                      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
+                  height: 150.0,
+                  width: 120.0,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(
+                  width: 12.0,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 35.0,
+                        width: double.infinity,
                         child: Text(
                           product.title,
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.headline5,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                       ),
-                    ),
-                    //TODO: add currency logic. use getter inside product model
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '\$ ${product.price}',
-                          style: Theme.of(context).textTheme.headline5,
+                      const SizedBox(
+                          width: double.infinity,
+                          height: 10.0,
+                          child: Text(
+                            '\$150',
+                            style: TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                            textAlign: TextAlign.left,
+                          )),
+                      //TODO: add currency logic. use getter inside product model
+                      SizedBox(
+                        height: 20,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$ ${product.price}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5!
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 5.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Data',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6!
+                                        .copyWith(color: Colors.yellow[400]),
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow[400],
+                                    size: 15.0,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.favorite_outline,
-                              color: Colors.red,
-                            ))
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
+          Positioned(
+              top: 5.0,
+              left: 222,
+              child: Container(
+                padding: const EdgeInsets.all(3),
+                decoration: const BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(5.0),
+                  ),
+                ),
+                child: Text(
+                  '30% off',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              ))
+        ],
       ),
     );
   }

@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-// ignore: todo
-// TODO: Remove the Above lines before release
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './widgets/image_slider.dart';
@@ -54,7 +50,6 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         // backgroundColor: Color(0xffebebeb),
-        //TODO: Add and customize a search bar
         appBar: AppBar(
           iconTheme: themeProvider ? Theme.of(context).iconTheme : null,
           actions: [
@@ -69,7 +64,7 @@ class _HomePageState extends State<HomePage> {
           // title: TextField(),
           centerTitle: true,
         ),
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
 
         body: SingleChildScrollView(
           child: Padding(
