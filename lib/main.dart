@@ -6,6 +6,7 @@
 
 //Packages
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 //Files
@@ -13,11 +14,29 @@ import './providers/slider_provider.dart';
 import './providers/category_provider.dart';
 import './providers/product_provider.dart';
 import 'ui/screens/home/home_screen.dart';
+import './providers/theme_provider.dart';
 import 'ui/theme/light_theme.dart';
 import 'ui/theme/dark_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+          create: (ctx) => CustomSliderProvider()), // Provider for CustomSlider
+      ChangeNotifierProvider(
+          create: (ctx) => CategoryProvider()), // Provider for Category
+      ChangeNotifierProvider(
+          create: (ctx) => ProductProvider()), // Provider for Product
+      ChangeNotifierProvider(
+          create: (ctx) => ThemeProvider()), // Provider for Theme
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,24 +45,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-            create: (ctx) =>
-                CustomSliderProvider()), // Provider for CustomSlider
-        ChangeNotifierProvider(
-            create: (ctx) => CategoryProvider()), // Provider for Category
-        ChangeNotifierProvider(
-            create: (ctx) => ProductProvider()), // Provider for Product
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme:
-            darkTheme(context), // use lightTheme(context) or darkTheme(context)
+    final themeProvider = Provider.of<ThemeProvider>(context).isDark;
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+      theme: themeProvider
+          ? darkTheme(context)
+          : lightTheme(
+              context), // get theme mode from ThemepProvider & pass corresponding theme
 
-        home: HomePage(),
-        // themeMode: ThemeMode.light,
-      ),
+      // themeMode: ThemeMode.light,
     );
   }
 }

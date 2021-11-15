@@ -90,7 +90,6 @@ class CategoryCard extends StatelessWidget {
                 child: Icon(
               Icons.person,
               size: 50.0,
-              color: Colors.blue,
             )),
             Container(
               width: double.infinity,
