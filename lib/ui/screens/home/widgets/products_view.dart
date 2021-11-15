@@ -51,8 +51,8 @@ class ProductView extends StatelessWidget {
               physics: ScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5,
               ),
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
@@ -78,38 +78,16 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: 8.0,
-          horizontal: 12.0,
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
+      child: Card(
         child: Column(
           children: [
             Expanded(
                 child: Icon(
               Icons.person,
               size: 50.0,
-              color: Colors.blue,
             )),
             Text(
               product.title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
             ),
           ],
         ),

@@ -82,7 +82,6 @@ class FeaturedProductCard extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
         child: Card(
-          // color: Colors.blue.shade100,
           child: Row(
             children: [
               Image(
