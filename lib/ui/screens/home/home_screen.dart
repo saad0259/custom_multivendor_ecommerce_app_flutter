@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                 title: Text("Profile"),
                 selectedColor: Colors.teal),
             SalomonBottomBarItem(
-                icon: Icon(Icons.more),
+                icon: Icon(Icons.grid_view_rounded),
                 title: Text("More"),
                 selectedColor: Colors.blue),
           ],
