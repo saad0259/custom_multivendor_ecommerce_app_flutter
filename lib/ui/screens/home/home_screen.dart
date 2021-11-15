@@ -6,9 +6,43 @@ import 'widgets/flash_deal_view.dart';
 import 'widgets/products_view.dart';
 import '../../global_widgets/custom_drawer.dart';
 import '../../../providers/theme_provider.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class HomePage extends StatelessWidget {
+class CustomSearchDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    return null;
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    return null;
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    return Container();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildSuggestions
+    return Container();
+  }
+}
+
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +53,15 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           iconTheme: themeProvider ? Theme.of(context).iconTheme : null,
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.shop)),
+            IconButton(
+                onPressed: () {
+                  showSearch(
+                      context: context, delegate: CustomSearchDelegate());
+                },
+                icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.shop)),
           ],
-          title: const TextField(),
+          // title: TextField(),
           centerTitle: true,
         ),
         drawer: const CustomDrawer(),
@@ -41,10 +80,37 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-
-        // Center(
-        //   child: Text('Hello'),
-        // ),
+        bottomNavigationBar: SalomonBottomBar(
+          currentIndex: _currentIndex,
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            SalomonBottomBarItem(
+                icon: Icon(Icons.home),
+                title: Text("Home"),
+                selectedColor: Colors.purple),
+            SalomonBottomBarItem(
+                icon: Icon(Icons.inbox),
+                title: Text("Chats"),
+                selectedColor: Colors.pink),
+            SalomonBottomBarItem(
+                icon: Icon(Icons.notifications),
+                title: Text("Orders"),
+                selectedColor: Colors.orange),
+            SalomonBottomBarItem(
+                icon: Icon(Icons.person),
+                title: Text("Profile"),
+                selectedColor: Colors.teal),
+            SalomonBottomBarItem(
+                icon: Icon(Icons.more),
+                title: Text("More"),
+                selectedColor: Colors.blue),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,6 @@
 {
-    "name": "custom_multivendor_ecommerce_app_flutter",
-    "short_name": "custom_multivendor_ecommerce_app_flutter",
+    "name": "cloudcart",
+    "short_name": "cloudcart",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

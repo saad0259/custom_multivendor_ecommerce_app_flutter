@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './text_theme.dart';
 
 MaterialColor primaryColor = Colors.blue;
 Color accentColor = Colors.white;
@@ -9,7 +10,7 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
           .copyWith(primary: primaryColor, secondary: accentColor),
       primaryColor: primaryColor,
       primaryColorBrightness: Brightness.light,
-      primaryColorLight: Colors.blue.shade300,
+      primaryColorLight: Colors.blue.shade100,
       cardColor: accentColor,
       scaffoldBackgroundColor: Colors.white.withAlpha(240),
       iconTheme: IconThemeData(color: primaryColor),
@@ -28,25 +29,5 @@ ThemeData lightTheme(BuildContext context) => ThemeData(
               foregroundColor: MaterialStateProperty.all(accentColor),
               backgroundColor: MaterialStateProperty.all(primaryColor))),
       fontFamily: 'Quicksand',
-      textTheme: ThemeData.light().textTheme.copyWith(
-            bodyText1: TextStyle(
-              color: primaryTextColor,
-              fontSize: 10,
-            ),
-            bodyText2: TextStyle(
-              color: primaryTextColor,
-              fontSize: 10,
-            ),
-            headline6: const TextStyle(
-              fontSize: 12,
-            ),
-            headline5: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-              color: primaryTextColor,
-            ),
-            headline4: const TextStyle(
-              fontSize: 16,
-            ),
-          ),
+      textTheme: ThemeData.light().textTheme.merge(textTheme(primaryTextColor)),
     );

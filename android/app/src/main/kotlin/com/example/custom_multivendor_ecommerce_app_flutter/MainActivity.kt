@@ -1,4 +1,4 @@
-package com.example.custom_multivendor_ecommerce_app_flutter
+package com.techforgery.cloudcart
 
 import io.flutter.embedding.android.FlutterActivity
 
