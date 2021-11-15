@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-// ignore: todo
-// TODO: Remove the Above lines before release
-
 import 'package:provider/provider.dart';
 import '../../../../providers/product_provider.dart';
 import '../../../../models/product.dart';
@@ -48,7 +44,7 @@ class ProductView extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
-              physics: ScrollPhysics(),
+              physics: const ScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 20,
@@ -79,13 +75,13 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
       child: Container(
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
           vertical: 8.0,
           horizontal: 12.0,
         ),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
           boxShadow: [
@@ -93,13 +89,13 @@ class ProductCard extends StatelessWidget {
               color: Colors.white.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
                 child: Icon(
               Icons.person,
               size: 50.0,
@@ -107,7 +103,7 @@ class ProductCard extends StatelessWidget {
             )),
             Text(
               product.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),

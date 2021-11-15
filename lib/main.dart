@@ -1,7 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-// ignore: todo
-// TODO: Remove the Above lines before release
-
 //Dart
 
 //Packages
@@ -35,7 +31,7 @@ Future<void> main() async {
       ChangeNotifierProvider(
           create: (ctx) => ThemeProvider()), // Provider for Theme
     ],
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -48,7 +44,7 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context).isDark;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
       theme: themeProvider
           ? darkTheme(context)
           : lightTheme(
