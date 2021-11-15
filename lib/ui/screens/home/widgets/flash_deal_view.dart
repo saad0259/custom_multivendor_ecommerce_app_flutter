@@ -1,4 +1,3 @@
-import 'package:custom_multivendor_ecommerce_app_flutter/ui/theme/dark_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../../../../providers/product_provider.dart';
@@ -129,7 +128,10 @@ class FeaturedProductCard extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .headline5!
-                                  .copyWith(color: primaryColor),
+                                  .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
                             ),
                             Container(
                               padding: EdgeInsets.only(right: 5.0),
