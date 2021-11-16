@@ -15,19 +15,28 @@ ThemeData darkTheme(BuildContext context) => ThemeData(
       scaffoldBackgroundColor: Colors.black87,
       iconTheme: IconThemeData(color: primaryColor),
       textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-              textStyle:
-                  MaterialStateProperty.all(const TextStyle(fontSize: 12)),
-              foregroundColor: MaterialStateProperty.all(primaryColor))),
+        style: ButtonStyle(
+          textStyle: MaterialStateProperty.all(TextStyle(
+            fontSize: 12,
+            color: primaryTextColor,
+          )),
+          foregroundColor: MaterialStateProperty.all(
+            primaryColor,
+          ),
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-              textStyle: MaterialStateProperty.all(
-                const TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-              foregroundColor: MaterialStateProperty.all(accentColor),
-              backgroundColor: MaterialStateProperty.all(primaryColor))),
+        style: ButtonStyle(
+          textStyle: MaterialStateProperty.all(
+            TextStyle(
+              fontSize: 16,
+              color: primaryTextColor,
+            ),
+          ),
+          foregroundColor: MaterialStateProperty.all(accentColor),
+          backgroundColor: MaterialStateProperty.all(primaryColor),
+        ),
+      ),
       fontFamily: 'Quicksand',
       textTheme: ThemeData.dark().textTheme.merge(textTheme(primaryTextColor)),
     );

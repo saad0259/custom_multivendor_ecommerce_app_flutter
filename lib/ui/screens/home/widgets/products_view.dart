@@ -80,8 +80,8 @@ class ProductCard extends StatelessWidget {
           children: [
             Column(
               children: [
-                Expanded(
-                  child: const Image(
+                const Expanded(
+                  child: Image(
                     image: NetworkImage(
                         'https://meetanshi.com/blog/wp-content/uploads/2020/02/12-Benefits-Of-E-commerce-Product-Customization-Personalization.png'),
                     height: 150.0,
@@ -90,8 +90,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  color: Theme.of(context).primaryColorLight,
-                  padding: EdgeInsets.all(
+                  padding: const EdgeInsets.all(
                     5.0,
                   ),
                   width: double.infinity,
@@ -144,7 +143,7 @@ class ProductCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                           width: double.infinity,
                           height: 15.0,
                           child: Text(
@@ -160,12 +159,12 @@ class ProductCard extends StatelessWidget {
               ],
             ),
             Positioned(
-                left: 127,
+                right: 0,
                 child: Container(
                   padding: const EdgeInsets.all(5),
-                  decoration: const BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(5.0),
                     ),
                   ),

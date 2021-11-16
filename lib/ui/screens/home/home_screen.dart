@@ -6,7 +6,6 @@ import 'widgets/flash_deal_view.dart';
 import 'widgets/products_view.dart';
 import '../../global_widgets/custom_drawer.dart';
 import '../../../providers/theme_provider.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   @override
@@ -42,8 +41,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context).isDark;
@@ -79,37 +76,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-        ),
-        bottomNavigationBar: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: [
-            SalomonBottomBarItem(
-                icon: Icon(Icons.home),
-                title: Text("Home"),
-                selectedColor: Colors.purple),
-            SalomonBottomBarItem(
-                icon: Icon(Icons.inbox),
-                title: Text("Chats"),
-                selectedColor: Colors.pink),
-            SalomonBottomBarItem(
-                icon: Icon(Icons.notifications),
-                title: Text("Orders"),
-                selectedColor: Colors.orange),
-            SalomonBottomBarItem(
-                icon: Icon(Icons.person),
-                title: Text("Profile"),
-                selectedColor: Colors.teal),
-            SalomonBottomBarItem(
-                icon: Icon(Icons.grid_view_rounded),
-                title: Text("More"),
-                selectedColor: Colors.blue),
-          ],
         ),
       ),
     );
