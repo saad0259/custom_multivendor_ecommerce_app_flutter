@@ -80,7 +80,6 @@ class FeaturedProductCard extends StatelessWidget {
       child: Stack(
         children: [
           Card(
-            // color: Colors.blue.shade100,
             child: Row(
               children: [
                 const Image(
@@ -163,13 +162,16 @@ class FeaturedProductCard extends StatelessWidget {
           ),
           Positioned(
               top: 5.0,
-              left: 222,
+              right: 0,
+              // left: 222,
               child: Container(
                 padding: const EdgeInsets.all(3),
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(5.0),
+                    bottomRight: Radius.circular(5.0),
+                    topRight: Radius.circular(5.0),
                   ),
                 ),
                 child: Text(

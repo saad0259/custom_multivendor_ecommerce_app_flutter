@@ -10,6 +10,7 @@ import './providers/slider_provider.dart';
 import './providers/category_provider.dart';
 import './providers/product_provider.dart';
 import 'ui/screens/home/home_screen.dart';
+import 'ui/global_widgets/bottom_navbar.dart';
 import './providers/theme_provider.dart';
 import 'ui/theme/light_theme.dart';
 import 'ui/theme/dark_theme.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context).isDark;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: BottomNavBar(),
       theme: themeProvider
           ? darkTheme(context)
           : lightTheme(
